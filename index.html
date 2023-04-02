@@ -5,53 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catalin's Cv</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <div id="header-wrapper">
         <div>
-          <img src="img.jpeg" alt="Selfie" height="100" />
+          <img src="selfie.jpeg" alt="Selfie" height="100" />
         </div>
         <div>
-          <h1>Catalin Szilagyi-Vlad</h1>
+          <h1>Szilagyi Catalin-Vlad</h1>
           <h2 id="job-title">Junior Fullstack Developer</h2>
         </div>
       </div>
 
       <ul id="top-menu-bar">
         <li>
-          <a href="#">Home</a>
+          <a href="#" onclick="selectPage('home')">Home</a>
         </li>
         <li>
-          <a href="#" onclick="showSkills()">Skills</a>
+          <a href="#" onclick="selectPage('skills')">Skills</a>
         </li>
         <li>
-          <a href="#">Projects</a>
+          <a href="#" onclick="selectPage('projects')">Projects</a>
         </li>
         <li>
-          <a href="#">Languages</a>
+          <a href="#" onclick="selectPage('languages')">Languages</a>
         </li>
       </ul>
     </header>
 
     <section id="content">
       <div id="side-menu">
-        <section>
+        <section class="side-menu-section">
+          <h2>Contact form</h2>
           <form action="" method="post">
-            <label for="userEmail">Email</label>
+            <div>
+              <label for="userEmail">Email</label>
+              <br />
+              <input
+                type="email"
+                name="email"
+                id="userEmail"
+                placeholder="example@me.com"
+                required
+              />
+            </div>
+            <label for="userName">Name</label>
+            <br />
             <input
-              type="email"
-              name="email"
-              id="userEmail"
-              placeholder="example@me.com"
+              type="text"
+              name="name"
+              id="userName"
+              placeholder="Your name"
               required
             />
-
-            <button type="submit">Send</button>
+            <br />
+            <button type="submit">Contact Us</button>
           </form>
         </section>
-        <section>M2</section>
       </div>
       <div id="main">
         <div class="page" id="home">Home content...</div>

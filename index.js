@@ -1,8 +1,12 @@
-var homePage = document.getElementById("home");
-var skillsPage = document.getElementById("skills");
-homePage.style.display = "block";
+let activePage = "home";
 
-function showSkills() {
-  homePage.style.display = "none";
-  skillsPage.style.display = "block";
+function hidePreviousPage(id) {
+  const el = document.getElementById(id);
+  el.style.display = "none";
+}
+
+function selectPage(pageId) {
+  hidePreviousPage(activePage);
+  document.getElementById(pageId).style.display = "block";
+  activePage = pageId;
 }
