@@ -124,3 +124,14 @@ button:hover {
   background-color: #fff;
   color: #334455;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+footer button:hover {
+  color: white;
+  border: solid 2px #334455;
+  background-color: #334455;
+}
