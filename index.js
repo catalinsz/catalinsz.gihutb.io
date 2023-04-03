@@ -5,7 +5,7 @@ function hidePreviousPage(id) {
   el.style.display = "none";
 }
 
-function selectPage(pageId) {
+function showPage(pageId) {
   hidePreviousPage(activePage);
   document.getElementById(pageId).style.display = "block";
   activePage = pageId;
