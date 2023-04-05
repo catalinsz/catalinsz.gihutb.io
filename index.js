@@ -1,42 +1,49 @@
 // My code
-let activePage = "home";
+// let activePage = "home";
 
-showPage(activePage);
+// showPage(activePage);
 
-function hidePreviousPage(id) {
-  const el = document.getElementById(id);
-  el.style.display = "none";
-}
+// function hidePreviousPage(id) {
+//   const el = document.getElementById(id);
+//   el.style.display = "none";
+// }
 
-function showPage(pageId) {
-  hidePreviousPage(activePage);
-  document.getElementById(pageId).style.display = "block";
-  activePage = pageId;
-}
+// function showPage(pageId) {
+//   hidePreviousPage(activePage);
+//   document.getElementById(pageId).style.display = "block";
+//   activePage = pageId;
+// }
 
 // Matei's code
-// var activePage = "skills";
+var activePage = "skills";
 
-// show(activePage);
+show(activePage);
 
-// function hide(id) {
-//   document.getElementById(id).style.display = "none";
-// }
-// function show(id) {
-//   document.getElementById(id).style.display = "block";
-// }
+function hide(id) {
+  document.getElementById(id).style.display = "none";
+}
+function show(id) {
+  document.getElementById(id).style.display = "block";
+}
 
-// function hideAllPages() {
-//   var pages = document.querySelectorAll("#main .page");
-//   pages.forEach(function (page) {
-//     hide(page.id);
-//   });
-// }
+function hideAllPages() {
+  var pages = document.querySelectorAll("#main .page");
+  pages.forEach(function (page) {
+    hide(page.id);
+  });
+  var link = document.querySelector(
+    `#top-menu-bar a[data-page="${activePage}"]`
+  );
+  link.classList.remove("active");
+}
 
-// function showPage(id) {
-//   hideAllPages();
-//   show(id);
-// }
+function showPage(id) {
+  hideAllPages();
+  show(id);
+  var link = document.querySelector(`#top-menu-bar a[data-page="${id}"]`);
+  link.classList.add("active");
+  activePage = id;
+}
 
 document.querySelector("#top-menu-bar").addEventListener("click", function (e) {
   if (e.target.matches("a")) {
@@ -45,27 +52,27 @@ document.querySelector("#top-menu-bar").addEventListener("click", function (e) {
   }
 });
 
-function showSkills() {
-  var skills = [
-    {
-      name: "HTML",
-      endorcements: 5,
-    },
-    {
-      name: "CSS",
-      endorcements: 10,
-    },
-    {
-      name: "JS",
-      endorcements: 15,
-    },
-  ];
+function showSkills(skills) {
+  skills.sort(function (a, b) {
+    return b.endorcements - a.endorcements;
+  });
   var html = skills.map(function (skill) {
-    return `<li>${skill.name} - <span class="endorcements">${skill.endorcements}</span></li>`;
+    var cls = skill.endorcements > 4 ? "important" : "";
+    return `<li class=${cls}>${skill.name}${skill.endorcements < 2 ? "" : `- <span class="endorcements">${skill.endorcements}</span>`}</li>`;
   });
 
   var container = document.querySelector("#skills ul");
   container.innerHTML = html.join("");
 }
 
-showSkills();
+function loadSkills() {
+  fetch("skills.json")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (skills) {
+      showSkills(skills);
+    });
+}
+
+loadSkills();

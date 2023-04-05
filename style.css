@@ -120,9 +120,22 @@ button:hover {
   transition: 0.5s;
 }
 
+#top-menu-bar a:active,
 #top-menu-bar a:hover {
   background-color: #fff;
   color: #334455;
+}
+
+.endorcements {
+  color: gray;
+}
+
+li.important {
+  font-weight: bold;
+}
+
+li.important .endorcements {
+  color: green;
 }
 
 footer {
