@@ -27,16 +27,20 @@
 
       <ul id="top-menu-bar">
         <li>
-          <a href="#" onclick="showPage('home')">Home</a>
+          <a href="#" data-page="home" onclick="showPage('home')">Home</a>
         </li>
         <li>
-          <a href="#" onclick="showPage('skills')">Skills</a>
+          <a href="#" data-page="skills" onclick="showPage('skills')">Skills</a>
         </li>
         <li>
-          <a href="#" onclick="showPage('projects')">Projects</a>
+          <a href="#" data-page="projects" onclick="showPage('projects')"
+            >Projects</a
+          >
         </li>
         <li>
-          <a href="#" onclick="showPage('languages')">Languages</a>
+          <a href="#" data-page="languages" onclick="showPage('languages')"
+            >Languages</a
+          >
         </li>
       </ul>
     </header>
@@ -73,7 +77,10 @@
       </div>
       <div id="main">
         <div class="page" id="home">Home content...</div>
-        <div class="page" id="skills">Skills content...</div>
+        <div class="page" id="skills">
+          Skills content...
+          <ul></ul>
+        </div>
         <div class="page" id="projects">Projects content...</div>
         <div class="page" id="languages">Languages content...</div>
       </div>
