@@ -1,4 +1,5 @@
 // My code
+
 // let activePage = "home";
 
 // showPage(activePage);
@@ -15,6 +16,7 @@
 // }
 
 // Matei's code
+
 var activePage = "skills";
 
 show(activePage);
